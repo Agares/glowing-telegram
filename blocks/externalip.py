@@ -15,12 +15,16 @@ class ExternalIp:
         now = time.time()
 
         if(now - self.last_update) > 60:
-            self.ip = urllib2.urlopen("http://utils.agares.info/remoteip.php").read()
+            try:
+                self.ip = urllib2.urlopen("http://utils.agares.info/remoteip.php").read()
+            except:
+                self.ip = "unknown"
+
             self.last_update = now
 
     def full_text(self):
         content = BlockContent()
         content.append_icon(icons.GLOBE)
-        content.append_text("  " + self.ip)
+        content.append_text(u"  " + self.ip)
 
         return content
