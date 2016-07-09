@@ -16,7 +16,7 @@ class ExternalIp(object):
 
         if(now - self.last_update) > 60:
             try:
-                self.ip = urllib2.urlopen("http://utils.agares.info/remoteip.php", None, 0.25).read()
+                self.ip = urllib2.urlopen("http://utils.agares.info/remoteip.php", None, 1).read()
             except:
                 self.ip = "unknown"
 
