@@ -23,7 +23,7 @@ class PulseAudio:
     def full_text(self):
         content = BlockContent()
         content.append_icon(icons.VOLUME_OFF if self.muted else icons.VOLUME_UP)
-        content.append_text("  {0:.0f}%".format(self.volume*100))
+        content.append_text("  {0:3.0f}%".format(self.volume*100))
 
         return content
 
