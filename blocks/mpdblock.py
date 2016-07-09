@@ -1,6 +1,5 @@
 import mpd
 
-import colors
 import icons
 from blockcontent import BlockContent
 
@@ -29,6 +28,3 @@ class MpdBlock:
         content.append_text("  {0} - {1}".format(self.artist, self.title))
 
         return content
-
-    def color(self):
-        return colors.NORMAL

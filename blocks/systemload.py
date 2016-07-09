@@ -1,6 +1,5 @@
 import os
 
-import colors
 import icons
 from blockcontent import BlockContent
 
@@ -19,6 +18,3 @@ class SystemLoad:
         content.append_text("  {0:2.2f}".format(self.load))
 
         return content
-
-    def color(self):
-        return colors.NORMAL

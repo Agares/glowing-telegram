@@ -1,6 +1,5 @@
 import netifaces
 
-import colors
 import icons
 from blockcontent import BlockContent
 
@@ -30,6 +29,3 @@ class NetworkInterface:
         content.append_text(self.address)
 
         return content
-
-    def color(self):
-        return colors.NORMAL
