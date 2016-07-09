@@ -19,10 +19,13 @@ class MpdBlock(object):
         status = self.mpd_client.status()
 
         self.is_playing = status["state"] == "play"
-        self.artist = current_song["artist"]
-        self.title = current_song["title"]
+        self.artist = current_song["artist"] if "artist" in current_song else ""
+        self.title = current_song["title"] if "title" in current_song else ""
 
     def full_text(self):
+        if self.artist == "" or self.title == "":
+            return u""
+
         content = BlockContent()
         content.append_icon(icons.PLAY if self.is_playing else icons.PAUSE)
         content.append_text(u"  {0} - {1}".format(self.artist, self.title))
