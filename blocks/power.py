@@ -23,7 +23,7 @@ class Power(object):
 
     def update(self):
         with open("/sys/class/power_supply/" + self.battery + "/status") as status_file:
-            status = status_file.read()
+            status = status_file.read().strip("\n")
 
             if status == "Full":
                 self.battery_status = BatteryStatus.FULL
@@ -46,13 +46,13 @@ class Power(object):
             content.append_icon(icons.BATTERY[self.animation_step])
         else:
             icon_index = round(self.charge * (len(icons.BATTERY) - 1), 0)
-            content.append_icon(icons.BATTERY[icon_index])
+            content.append_icon(icons.BATTERY[int(icon_index)])
 
         content.append_text("  ")
 
         if self.battery_status == BatteryStatus.FULL:
             content.append_text("100%")
         else:
-            content.append_text("{0:.0f}".format(self.charge * 100))
+            content.append_text("{0:3.0f}%".format(self.charge * 100))
 
         return content
