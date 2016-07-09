@@ -8,7 +8,7 @@ from blockcontent import BlockContent
 
 class ExternalIp(object):
     def __init__(self):
-        self.ip = "0.0.0.0"
+        self.ip = "unknown"
         self.last_update = 0
 
     def update(self):
@@ -16,7 +16,7 @@ class ExternalIp(object):
 
         if(now - self.last_update) > 60:
             try:
-                self.ip = urllib2.urlopen("http://utils.agares.info/remoteip.php").read()
+                self.ip = urllib2.urlopen("http://utils.agares.info/remoteip.php", None, 0.25).read()
             except:
                 self.ip = "unknown"
 
