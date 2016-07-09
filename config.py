@@ -1,3 +1,4 @@
+from blocks.externalip import ExternalIp
 from blocks.pulseaudio import PulseAudio
 from blocks.mpdblock import MpdBlock
 from blocks.networkinterface import NetworkInterface
@@ -9,6 +10,7 @@ blocks = [
     PulseAudio(),
     MpdBlock(),
     NetworkInterface("wlp6s0"),
+    ExternalIp(),
     SystemLoad(),
     Power(),
     SystemTime()
