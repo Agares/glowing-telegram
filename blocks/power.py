@@ -2,7 +2,7 @@ import icons
 from blockcontent import BlockContent
 
 
-class BatteryStatus:
+class BatteryStatus(object):
     def __init__(self):
         pass
 
@@ -11,7 +11,7 @@ class BatteryStatus:
     FULL = 2
 
 
-class Power:
+class Power(object):
     def __init__(self, battery="BAT0", adapter="AC"):
         self.adapter = adapter
         self.battery = battery

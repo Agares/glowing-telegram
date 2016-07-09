@@ -4,7 +4,7 @@ import icons
 from blockcontent import BlockContent
 
 
-class NetworkInterface:
+class NetworkInterface(object):
     def __init__(self, interface_name, icon=icons.WIFI):
         self.icon = icon
         self.interface_name = interface_name

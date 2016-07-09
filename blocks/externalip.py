@@ -6,7 +6,7 @@ import icons
 from blockcontent import BlockContent
 
 
-class ExternalIp:
+class ExternalIp(object):
     def __init__(self):
         self.ip = "0.0.0.0"
         self.last_update = 0

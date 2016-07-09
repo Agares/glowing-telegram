@@ -4,7 +4,7 @@ import icons
 from blockcontent import BlockContent
 
 
-class SystemTime:
+class SystemTime(object):
     def __init__(self):
         pass
 

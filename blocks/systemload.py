@@ -4,7 +4,7 @@ import icons
 from blockcontent import BlockContent
 
 
-class SystemLoad:
+class SystemLoad(object):
     def __init__(self):
         self.load = 0.0
         self.update()

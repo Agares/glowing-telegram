@@ -4,7 +4,7 @@ import icons
 from blockcontent import BlockContent
 
 
-class MpdBlock:
+class MpdBlock(object):
     def __init__(self):
         self.mpd_client = mpd.MPDClient(True)
         self.mpd_client.connect("localhost", 6600)

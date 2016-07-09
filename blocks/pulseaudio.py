@@ -5,7 +5,7 @@ import icons
 from blockcontent import BlockContent
 
 
-class PulseAudio:
+class PulseAudio(object):
     def __init__(self, sink_index=1):
         self.pulse = pulsectl.Pulse()
         self.sink_index = sink_index

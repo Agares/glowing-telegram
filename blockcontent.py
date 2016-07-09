@@ -1,7 +1,7 @@
 import colors
 
 
-class BlockContent:
+class BlockContent(object):
     def __init__(self):
         self.content = u""
 

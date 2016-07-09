@@ -8,7 +8,12 @@ import config
 
 
 def block_to_dict(b):
-    return {"full_text": unicode(b.full_text()), "markup": "pango"}
+    return {
+        "full_text": unicode(b.full_text()),
+        "markup": "pango",
+        "name": type(block).__name__,
+        "instance": str(id(block))
+    }
 
 
 if __name__ == "__main__":
