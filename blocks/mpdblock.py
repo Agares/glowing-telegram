@@ -31,3 +31,6 @@ class MpdBlock(object):
         content.append_text(u"  {0} - {1}".format(self.artist, self.title))
 
         return content
+
+    def click(self):
+        self.mpd_client.pause(int(self.is_playing))

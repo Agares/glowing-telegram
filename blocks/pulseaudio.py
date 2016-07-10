@@ -26,3 +26,6 @@ class PulseAudio(object):
         content.append_text("  {0:3.0f}%".format(self.volume*100), colors.MUTED if self.muted else colors.NORMAL)
 
         return content
+
+    def click(self):
+        self.pulse.mute(self.pulse.sink_list()[self.sink_index], not self.muted)
