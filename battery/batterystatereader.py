@@ -6,8 +6,6 @@ class BatteryStateReader(object):
         self.__battery_id = battery_id
 
     def read_state(self):
-        status = BatteryStatus.DISCHARGING
-
         with open("/sys/class/power_supply/" + self.__battery_id + "/status") as status_file:
             raw_status = status_file.read().strip("\n")
 
@@ -18,7 +16,7 @@ class BatteryStateReader(object):
             elif raw_status == "Charging":
                 status = BatteryStatus.CHARGING
             else:
-                raise NotImplementedError
+                status = BatteryStatus.UNKNOWN
 
         with open("/sys/class/power_supply/" + self.__battery_id + "/charge_full") as full_charge_file:
             with open("/sys/class/power_supply/" + self.__battery_id + "/charge_now") as current_charge_file:

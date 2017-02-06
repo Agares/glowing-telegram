@@ -2,6 +2,7 @@ class BatteryStatus(object):
     CHARGING = 0
     DISCHARGING = 1
     FULL = 2
+    UNKNOWN = 3
 
 
 class BatteryState(object):

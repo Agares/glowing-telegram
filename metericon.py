@@ -10,4 +10,9 @@ class MeterIcon(object):
     def __unicode__(self):
         icon_index = (len(self.__icons) - 1) * self.__state
         icon_index = round(icon_index)
-        return self.__icons[int(icon_index)]
+        icon_index = int(icon_index)
+        
+        if icon_index >= len(self.__icons):
+            icon_index -= 1
+
+        return self.__icons[icon_index]
