@@ -9,13 +9,19 @@ class Spotify(object):
         self.__artist = u''
         self.__title = u''
         self.__status = ''
+        self.__spotify = None
 
-        bus = dbus.SessionBus()
-        self.__spotify = bus.get_object("org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2")
-        self.__spotify_properties = dbus.Interface(self.__spotify, 'org.freedesktop.DBus.Properties')
-        pass
+        try:
+            bus = dbus.SessionBus()
+            self.__spotify = bus.get_object("org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2")
+            self.__spotify_properties = dbus.Interface(self.__spotify, 'org.freedesktop.DBus.Properties')
+        except dbus.DBusException:
+            pass
 
     def update(self):
+        if not self.__spotify:
+            return
+
         props = self.__spotify_properties.Get('org.mpris.MediaPlayer2.Player', 'Metadata')
 
         self.__artist = unicode(props['xesam:artist'][0])
@@ -25,6 +31,11 @@ class Spotify(object):
         self.__status = str(playback_status)
 
     def full_text(self):
+        if not self.__title:
+            content = BlockContent()
+            content.append_icon(icons.STOP)
+            return content
+
         content = BlockContent()
         content.append_icon({
             'Playing': icons.PLAY,
