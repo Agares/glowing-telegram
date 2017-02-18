@@ -1,3 +1,3 @@
-NORMAL = "#5f83bf"
-MUTED = "#2d383b"
-ICON = "#597076"
+NORMAL = "#eee"
+MUTED = "#444"
+ICON = "#666"
