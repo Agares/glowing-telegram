@@ -8,7 +8,7 @@ from blocks.systemload import SystemLoad
 from blocks.systemtime import SystemTime
 
 blocks = [
-    PulseAudio(),
+    PulseAudio(0),
     Spotify(),
     FreeDiskSpace(),
     FreeDiskSpace("/media/hdd"),
