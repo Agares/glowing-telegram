@@ -6,8 +6,8 @@ from blockcontent import BlockContent
 
 class Spotify(object):
     def __init__(self):
-        self.__artist = u''
-        self.__title = u''
+        self.__artist = ''
+        self.__title = ''
         self.__status = ''
         self.__spotify = None
 
@@ -24,8 +24,8 @@ class Spotify(object):
 
         props = self.__spotify_properties.Get('org.mpris.MediaPlayer2.Player', 'Metadata')
 
-        self.__artist = unicode(props['xesam:artist'][0])
-        self.__title = unicode(props['xesam:title'])
+        self.__artist = str(props['xesam:artist'][0])
+        self.__title = str(props['xesam:title'])
 
         playback_status = self.__spotify_properties.Get('org.mpris.MediaPlayer2.Player', 'PlaybackStatus')
         self.__status = str(playback_status)
@@ -42,7 +42,7 @@ class Spotify(object):
             'Paused': icons.PAUSE,
             'Stopped': icons.STOP
         }[self.__status])
-        content.append_text(u"  {} - {}".format(self.__artist, self.__title))
+        content.append_text("  {} - {}".format(self.__artist, self.__title))
 
         return content
 

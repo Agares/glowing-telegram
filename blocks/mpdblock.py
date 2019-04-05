@@ -9,8 +9,8 @@ class MpdBlock(object):
         self.mpd_client = mpd.MPDClient(True)
         self.mpd_client.connect("localhost", 6600)
         self.is_playing = False
-        self.artist = u""
-        self.title = u""
+        self.artist = ""
+        self.title = ""
 
         self.update()
 
@@ -24,11 +24,11 @@ class MpdBlock(object):
 
     def full_text(self):
         if self.artist == "" or self.title == "":
-            return u""
+            return ""
 
         content = BlockContent()
         content.append_icon(icons.PLAY if self.is_playing else icons.PAUSE)
-        content.append_text(u"  {0} - {1}".format(self.artist, self.title))
+        content.append_text("  {0} - {1}".format(self.artist, self.title))
 
         return content
 

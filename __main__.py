@@ -11,7 +11,7 @@ from eventreader import EventReader
 
 def block_to_dict(b):
     return {
-        "full_text": unicode(b.full_text()),
+        "full_text": str(b.full_text()),
         "markup": "pango",
         "name": type(b).__name__,
         "instance": str(id(b))
@@ -20,8 +20,8 @@ def block_to_dict(b):
 
 if __name__ == "__main__":
     event_dispatcher = EventDispatcher(EventReader())
-    print json.dumps({"version": 1, "click_events": True})
-    print "["
+    print(json.dumps({"version": 1, "click_events": True}))
+    print("[")
 
     while True:
         for block in config.blocks:
@@ -29,8 +29,8 @@ if __name__ == "__main__":
 
         event_dispatcher.dispatch(config.blocks)
 
-        serializable_block_content = map(block_to_dict, config.blocks)
-        print json.dumps(serializable_block_content) + ","
+        serializable_block_content = list(map(block_to_dict, config.blocks))
+        print(json.dumps(serializable_block_content) + ",")
 
         sys.stdout.flush()
         time.sleep(0.25)
