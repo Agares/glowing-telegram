@@ -9,7 +9,7 @@ class BlockContent(object):
         self.append_text(icon, color)
 
     def append_text(self, text, color=colors.NORMAL):
-        self.content += "<span foreground=\"{0}\">{1}</span>".format(color, text)
+        self.content += f"<span foreground=\"{color}\">{text}</span>"
 
     def append_percentage(self, value, format_def="{:3.0f} %"):
         self.append_text(format_def.format(value * 100))
