@@ -15,7 +15,7 @@ class Spotify(object):
             bus = dbus.SessionBus()
             self.__spotify = bus.get_object("org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2")
             self.__spotify_properties = dbus.Interface(self.__spotify, 'org.freedesktop.DBus.Properties')
-        except dbus.DBusException:
+        except dbus.DBusException as e:
             pass
 
     def update(self):

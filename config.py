@@ -8,10 +8,10 @@ from blocks.systemload import SystemLoad
 from blocks.systemtime import SystemTime
 
 blocks = [
-    PulseAudio(0),
+    PulseAudio(2),
     Spotify(),
     FreeDiskSpace(),
-#    FreeDiskSpace("/media/hdd"),
+    FreeDiskSpace("/mnt/data"),
     NetworkInterface("eno1"),
     SystemLoad(),
 #    Power(),
