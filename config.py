@@ -11,9 +11,7 @@ blocks = [
     PulseAudio(2),
     Spotify(),
     FreeDiskSpace(),
-    FreeDiskSpace("/mnt/data"),
     NetworkInterface("eno1"),
     SystemLoad(),
-#    Power(),
     SystemTime()
 ]
